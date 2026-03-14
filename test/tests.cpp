@@ -1,11 +1,11 @@
 // Copyright 2025 UNN-CS Team
 
 #include <gtest/gtest.h>
-#include "tasks.h"
-#include "circle.h"
 #include <stdexcept>
 #include <cmath>
 #include <utility>
+#include "tasks.h"
+#include "circle.h"
 
 class CircleTest : public ::testing::Test {};
 
