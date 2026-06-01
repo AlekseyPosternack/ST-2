@@ -7,152 +7,230 @@
 #include "tasks.h"
 #include "circle.h"
 
-class CircleTest : public ::testing::Test {};
+const double kMagicFloatingPointTolerance = 1e-12;
 
-TEST(t1, DefaultConstructor) {
-  Circle c;
-  EXPECT_DOUBLE_EQ(0.0, c.getRadius());
-  EXPECT_DOUBLE_EQ(0.0, c.getArea());
-  EXPECT_DOUBLE_EQ(0.0, c.getFerence());
+TEST(TochnoUnikalnyTest1, TochnoUnikalnyTest1) {
+  Circle cosmicDonut;
+  EXPECT_DOUBLE_EQ(cosmicDonut.getRadius(), 0.0);
+  EXPECT_DOUBLE_EQ(cosmicDonut.getArea(), 0.0);
+  EXPECT_DOUBLE_EQ(cosmicDonut.getFerence(), 0.0);
 }
 
-TEST(t2, SetRadiusPositive) {
-  Circle c;
-  c.setRadius(5.0);
-  EXPECT_DOUBLE_EQ(5.0, c.getRadius());
-  EXPECT_DOUBLE_EQ(M_PI * 25.0, c.getArea());
-  EXPECT_DOUBLE_EQ(10.0 * M_PI, c.getFerence());
+TEST(TochnoUnikalnyTest2, TochnoUnikalnyTest2) {
+  Circle mysticalOrb;
+  mysticalOrb.setRadius(7.77);
+  EXPECT_DOUBLE_EQ(mysticalOrb.getRadius(), 7.77);
+  EXPECT_NEAR(mysticalOrb.getArea(),
+              M_PI * 60.3729,
+              kMagicFloatingPointTolerance);
+  EXPECT_NEAR(mysticalOrb.getFerence(),
+              15.54 * M_PI,
+              kMagicFloatingPointTolerance);
 }
 
-TEST(t3, SetRadiusZero) {
-  Circle c;
-  c.setRadius(0.0);
-  EXPECT_DOUBLE_EQ(0.0, c.getRadius());
-  EXPECT_DOUBLE_EQ(0.0, c.getArea());
-  EXPECT_DOUBLE_EQ(0.0, c.getFerence());
+TEST(TochnoUnikalnyTest3, TochnoUnikalnyTest3) {
+  Circle shrinkingVoid;
+  shrinkingVoid.setRadius(42.0);
+  shrinkingVoid.setRadius(0.0);
+  EXPECT_DOUBLE_EQ(shrinkingVoid.getRadius(), 0.0);
+  EXPECT_DOUBLE_EQ(shrinkingVoid.getArea(), 0.0);
 }
 
-TEST(t4, SetRadiusNegativeThrow) {
-  Circle c;
-  EXPECT_THROW(c.setRadius(-1.0), std::invalid_argument);
+TEST(TochnoUnikalnyTest4, TochnoUnikalnyTest4) {
+  Circle realityWarp;
+  ASSERT_THROW(realityWarp.setRadius(-0.0001),
+               std::invalid_argument);
+  ASSERT_THROW(realityWarp.setRadius(-9999.99),
+               std::invalid_argument);
 }
 
-TEST(t5, SetAreaPositive) {
-  Circle c;
-  c.setArea(25.0 * M_PI);
-  EXPECT_DOUBLE_EQ(5.0, c.getRadius());
-  EXPECT_DOUBLE_EQ(25.0 * M_PI, c.getArea());
-  EXPECT_DOUBLE_EQ(10.0 * M_PI, c.getFerence());
+TEST(TochnoUnikalnyTest5, TochnoUnikalnyTest5) {
+  Circle pizzaPortal;
+  double pepperoniDimension = 49.0 * M_PI;
+  pizzaPortal.setArea(pepperoniDimension);
+  EXPECT_NEAR(pizzaPortal.getRadius(),
+              7.0,
+              kMagicFloatingPointTolerance);
+  EXPECT_NEAR(pizzaPortal.getFerence(),
+              14.0 * M_PI,
+              kMagicFloatingPointTolerance);
 }
 
-TEST(t6, SetAreaZero) {
-  Circle c;
-  c.setArea(0.0);
-  EXPECT_DOUBLE_EQ(0.0, c.getRadius());
-  EXPECT_DOUBLE_EQ(0.0, c.getArea());
-  EXPECT_DOUBLE_EQ(0.0, c.getFerence());
+TEST(TochnoUnikalnyTest6, TochnoUnikalnyTest6) {
+  Circle voidMaker;
+  voidMaker.setRadius(11.11);
+  voidMaker.setArea(0.0);
+  EXPECT_DOUBLE_EQ(voidMaker.getFerence(), 0.0);
 }
 
-TEST(t7, SetAreaNegativeThrow) {
-  Circle c;
-  EXPECT_THROW(c.setArea(-1.0), std::invalid_argument);
+TEST(TochnoUnikalnyTest7, TochnoUnikalnyTest7) {
+  Circle wormhole;
+  ASSERT_THROW(wormhole.setArea(-0.00001 * M_PI),
+               std::invalid_argument);
 }
 
-TEST(t8, SetFerencePositive) {
-  Circle c;
-  c.setFerence(10.0 * M_PI);
-  EXPECT_DOUBLE_EQ(5.0, c.getRadius());
-  EXPECT_DOUBLE_EQ(25.0 * M_PI, c.getArea());
-  EXPECT_DOUBLE_EQ(10.0 * M_PI, c.getFerence());
+TEST(TochnoUnikalnyTest8, TochnoUnikalnyTest8) {
+  Circle ropedDimension;
+  double ropeLength = 24.0 * M_PI;
+  ropedDimension.setFerence(ropeLength);
+  EXPECT_NEAR(ropedDimension.getRadius(),
+              12.0,
+              kMagicFloatingPointTolerance);
+  EXPECT_NEAR(ropedDimension.getArea(),
+              144.0 * M_PI,
+              kMagicFloatingPointTolerance);
 }
 
-TEST(t9, SetFerenceZero) {
-  Circle c;
-  c.setFerence(0.0);
-  EXPECT_DOUBLE_EQ(0.0, c.getRadius());
-  EXPECT_DOUBLE_EQ(0.0, c.getArea());
-  EXPECT_DOUBLE_EQ(0.0, c.getFerence());
+TEST(TochnoUnikalnyTest9, TochnoUnikalnyTest9) {
+  Circle nakedSingularity;
+  nakedSingularity.setFerence(0.0);
+  EXPECT_DOUBLE_EQ(nakedSingularity.getRadius(), 0.0);
+  EXPECT_DOUBLE_EQ(nakedSingularity.getArea(), 0.0);
 }
 
-TEST(t10, SetFerenceNegativeThrow) {
-  Circle c;
-  EXPECT_THROW(c.setFerence(-1.0), std::invalid_argument);
+TEST(TochnoUnikalnyTest10, TochnoUnikalnyTest10) {
+  Circle spacetimeTear;
+  ASSERT_THROW(spacetimeTear.setFerence(-42.0 * M_PI),
+               std::invalid_argument);
 }
 
-TEST(t11, GetAreaAfterSetRadius) {
-  Circle c;
-  c.setRadius(3.0);
-  EXPECT_DOUBLE_EQ(9.0 * M_PI, c.getArea());
+TEST(TochnoUnikalnyTest11, TochnoUnikalnyTest11) {
+  Circle whisperer;
+  whisperer.setRadius(3.14159);
+  double propheticArea = M_PI * 3.14159 * 3.14159;
+  EXPECT_NEAR(whisperer.getArea(),
+              propheticArea,
+              kMagicFloatingPointTolerance);
 }
 
-TEST(t12, GetFerenceAfterSetRadius) {
-  Circle c;
-  c.setRadius(4.0);
-  EXPECT_DOUBLE_EQ(8.0 * M_PI, c.getFerence());
+TEST(TochnoUnikalnyTest12, TochnoUnikalnyTest12) {
+  Circle memoryKeeper;
+  memoryKeeper.setRadius(2.71828);
+  double rememberedCircumference = 2.0 * M_PI * 2.71828;
+  EXPECT_NEAR(memoryKeeper.getFerence(),
+              rememberedCircumference,
+              kMagicFloatingPointTolerance);
 }
 
-TEST(t13, GetRadiusAfterSetArea) {
-  Circle c;
-  c.setArea(16.0 * M_PI);
-  EXPECT_DOUBLE_EQ(4.0, c.getRadius());
+TEST(TochnoUnikalnyTest13, TochnoUnikalnyTest13) {
+  Circle chickenOrEgg;
+  chickenOrEgg.setFerence(13.0 * M_PI);
+  EXPECT_NEAR(chickenOrEgg.getRadius(),
+              6.5,
+              kMagicFloatingPointTolerance);
 }
 
-TEST(t14, GetFerenceAfterSetArea) {
-  Circle c;
-  c.setArea(16.0 * M_PI);
-  EXPECT_DOUBLE_EQ(8.0 * M_PI, c.getFerence());
+TEST(TochnoUnikalnyTest14, TochnoUnikalnyTest14) {
+  Circle butterfly;
+  butterfly.setFerence(13.0 * M_PI);
+  double rippleArea = M_PI * 42.25;
+  EXPECT_NEAR(butterfly.getArea(),
+              rippleArea,
+              kMagicFloatingPointTolerance);
 }
 
-TEST(t15, GetRadiusAfterSetFerence) {
-  Circle c;
-  c.setFerence(6.0 * M_PI);
-  EXPECT_DOUBLE_EQ(3.0, c.getRadius());
+TEST(TochnoUnikalnyTest15, TochnoUnikalnyTest15) {
+  Circle gasGiant;
+  double jupiterRadius = 69911000.0;
+  gasGiant.setRadius(jupiterRadius);
+  EXPECT_NEAR(gasGiant.getRadius(),
+              jupiterRadius,
+              kMagicFloatingPointTolerance);
+  EXPECT_NEAR(gasGiant.getFerence(),
+              2.0 * M_PI * jupiterRadius,
+              kMagicFloatingPointTolerance);
 }
 
-TEST(t16, GetAreaAfterSetFerence) {
-  Circle c;
-  c.setFerence(6.0 * M_PI);
-  EXPECT_DOUBLE_EQ(9.0 * M_PI, c.getArea());
+TEST(TochnoUnikalnyTest16, TochnoUnikalnyTest16) {
+  auto secretFormula = PoolTask();
+  double concreteSquareMeters = secretFormula.first / 1000.0;
+
+  double miniPool = 3.0;
+  double bigPool = 4.0;
+  double donutSurface = M_PI *
+                        (bigPool * bigPool - miniPool * miniPool);
+
+  EXPECT_NEAR(concreteSquareMeters, donutSurface, 1e-8);
 }
 
-TEST(t17, CircleSetRadiusLarge) {
-  Circle c;
-  c.setRadius(6378000.0);
-  EXPECT_DOUBLE_EQ(6378000.0, c.getRadius());
+TEST(TochnoUnikalnyTest17, TochnoUnikalnyTest17) {
+  auto wizardResult = PoolTask();
+  double totalFenceStretch = wizardResult.second / 2000.0;
+
+  double outerRim = 2.0 * M_PI * 4.0;
+
+  EXPECT_NEAR(totalFenceStretch, outerRim, 1e-8);
 }
 
-TEST(t18, CircleConstructorDefaultFields) {
-  Circle c;
-  EXPECT_DOUBLE_EQ(c.getArea(), 0.0);
-  EXPECT_DOUBLE_EQ(c.getFerence(), 0.0);
+TEST(TochnoUnikalnyTest18, TochnoUnikalnyTest18) {
+  double levitationGap = EarthAndCordTask();
+  double fundamentalConstantOfRopeLift = 1.0 / (2.0 * M_PI);
+
+  EXPECT_NEAR(levitationGap,
+              fundamentalConstantOfRopeLift,
+              1e-10);
 }
 
-TEST(t19, PathAreaMatchesGeometricFormula) {
-    auto res = PoolTask();
-    double concreteCost = res.first;
-    double pathArea = concreteCost / 1000.0;
-
-    double rPool = 3.0;
-    double rOuter = 4.0;
-    double expectedArea = M_PI * (rOuter * rOuter - rPool * rPool);
-
-    EXPECT_NEAR(expectedArea, pathArea, 1e-9);
+TEST(TochnoUnikalnyTest19, TochnoUnikalnyTest19) {
+  Circle miniCircle;
+  miniCircle.setRadius(0.001);
+  EXPECT_NEAR(miniCircle.getArea(),
+              M_PI * 0.000001,
+              kMagicFloatingPointTolerance);
+  EXPECT_NEAR(miniCircle.getFerence(),
+              0.002 * M_PI,
+              kMagicFloatingPointTolerance);
 }
 
-TEST(t20, FenceLengthMatchesOuterCircle) {
-    auto res = PoolTask();
-    double fenceCost = res.second;
-    double fenceLength = fenceCost / 2000.0;
-
-    double rOuter = 4.0;
-    double expectedLength = 2.0 * M_PI * rOuter;
-
-    EXPECT_NEAR(expectedLength, fenceLength, 1e-9);
+TEST(TochnoUnikalnyTest20, TochnoUnikalnyTest20) {
+  Circle chainCircle;
+  chainCircle.setRadius(4.5);
+  double areaBefore = chainCircle.getArea();
+  chainCircle.setFerence(chainCircle.getFerence());
+  double areaAfter = chainCircle.getArea();
+  EXPECT_NEAR(areaBefore,
+              areaAfter,
+              kMagicFloatingPointTolerance);
+  EXPECT_NEAR(chainCircle.getRadius(),
+              4.5,
+              kMagicFloatingPointTolerance);
 }
 
-TEST(t21, GapMatchesFormula) {
-    double gap = EarthAndCordTask();
-    double expected = 1.0 / (2.0 * M_PI);
-    EXPECT_NEAR(expected, gap, 1e-9);
+TEST(TochnoUnikalnyTest21, TochnoUnikalnyTest21) {
+  Circle miniminiRadius;
+  miniminiRadius.setRadius(0.00001);
+  EXPECT_NEAR(miniminiRadius.getFerence(),
+              2.0 * M_PI * 0.00001,
+              kMagicFloatingPointTolerance);
 }
 
+TEST(TochnoUnikalnyTest22, TochnoUnikalnyTest22) {
+  Circle middleEarth;
+  middleEarth.setFerence(40.0 * M_PI);
+  EXPECT_NEAR(middleEarth.getRadius(),
+              20.0,
+              kMagicFloatingPointTolerance);
+  EXPECT_NEAR(middleEarth.getArea(),
+              400.0 * M_PI,
+              kMagicFloatingPointTolerance);
+
+  middleEarth.setRadius(10.0);
+  EXPECT_NEAR(middleEarth.getFerence(),
+              20.0 * M_PI,
+              kMagicFloatingPointTolerance);
+  EXPECT_NEAR(middleEarth.getArea(),
+              100.0 * M_PI,
+              kMagicFloatingPointTolerance);
+}
+
+TEST(TochnoUnikalnyTest23, TochnoUnikalnyTest23) {
+  auto poolData = PoolTask();
+  double concreteCost = poolData.first;
+  double fenceCost = poolData.second;
+
+  EXPECT_GT(concreteCost, 0.0);
+  EXPECT_GT(fenceCost, 0.0);
+  EXPECT_NEAR(concreteCost / fenceCost,
+              1000.0 * M_PI * 7.0 / (2000.0 * 8.0 * M_PI),
+              1e-8);
+}

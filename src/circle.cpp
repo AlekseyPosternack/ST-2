@@ -1,4 +1,4 @@
-// Copyright 2022 UNN-CS
+// Copyright 2025 UNN-CS Team
 #include "circle.h"
 #include <cmath>
 #include <stdexcept>
@@ -21,29 +21,34 @@ double Circle::getRadius() const {
     return radius;
 }
 
-void Circle::setRadius(double _radius) {
-    if (_radius < 0.0) {
-        throw std::invalid_argument("Radius cannot be negative");
+void Circle::setRadius(double newRadius) {
+    if (newRadius < 0.0) {
+        throw std::invalid_argument("Negative radius not allowed");
     }
-    radius = _radius;
-    ference = 2.0 * M_PI * radius;
+    radius = newRadius;
+    double circleDiameter = 2.0 * radius;
+    ference = M_PI * circleDiameter;
     area = M_PI * radius * radius;
 }
 
-void Circle::setArea(double _area) {
-    if (_area < 0.0) {
-        throw std::invalid_argument("Area cannot be negative");
+void Circle::setArea(double newArea) {
+    if (newArea < 0.0) {
+        throw std::invalid_argument("Negative area not allowed");
     }
-    area = _area;
-    radius = sqrt(area / M_PI);
-    ference = 2.0 * M_PI * radius;
+    area = newArea;
+    double radiusSquared = area / M_PI;
+    radius = sqrt(radiusSquared);
+    double circleDiameter = 2.0 * radius;
+    ference = M_PI * circleDiameter;
 }
 
-void Circle::setFerence(double _ference) {
-    if (_ference < 0.0) {
-        throw std::invalid_argument("Ference cannot be negative");
+void Circle::setFerence(double newFerence) {
+    if (newFerence < 0.0) {
+        throw std::invalid_argument("Negative ference not allowed");
     }
-    ference = _ference;
-    radius = ference / (2.0 * M_PI);
-    area = M_PI * radius * radius;
+    ference = newFerence;
+    double circleDiameter = ference / M_PI;
+    radius = circleDiameter / 2.0;
+    double radiusSquared = radius * radius;
+    area = M_PI * radiusSquared;
 }
